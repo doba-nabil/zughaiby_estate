@@ -14,7 +14,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('sliders.index') }}" class="waves-effect">
+                    <a href="{{ route('estates.index') }}" class="waves-effect">
                         <i class="fas fa-city"></i>
                         <span>العقارات</span>
                     </a>

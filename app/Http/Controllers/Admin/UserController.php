@@ -41,10 +41,10 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'حدث خطأ !!');
         }
     }
-    public function block_user($id)
+    public function block_user($slug)
     {
         try {
-            $user = User::find($id);
+            $user = User::where('slug' , $slug)->first();
             if($user->active == 1){
                 $user->active = 0;
                 $user->save();
@@ -99,9 +99,14 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $user = User::where('slug' , $slug)->first();
+        if (isset($user)) {
+            return view('backend.users.show', compact('user'));
+        } else {
+            return redirect()->back()->with('error', 'حدث خطأ !!');
+        }
     }
 
     /**

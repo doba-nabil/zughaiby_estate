@@ -51,6 +51,12 @@
                                 <td>
                                     <a href="{{ route('estates.edit' , $estate->slug) }}"
                                        class="mr-3 text-primary"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                    <a href="{{ route('all_infos' , $estate->slug) }}" title="عمليات خاصة بالعقار"
+                                       class="mr-3 text-warning"><i class="mdi mdi-cached font-size-18"></i></a>
+                                    <a style="color: #0a83ff" href="{{ route('calendar' , $estate->slug) }}" title="عمليات خاصة بالعقار على هيئة نتيجة"
+                                       class="mr-3"><i class="mdi mdi-calendar font-size-18"></i></a>
+                                    <a style="color: #5c1623" href="{{ route('estate_log' , $estate->slug) }}" title="تغييرات على العقار"
+                                       class="mr-3"><i class="fas fa-clipboard-list font-size-18"></i></a>
                                     <a href="{{ route('estates.show' , $estate->slug) }}"
                                        class="mr-3 text-success"><i class="mdi mdi-eye font-size-18"></i></a>
                                     <a title="" onclick="return false;" object_id="{{ $estate->id }}"

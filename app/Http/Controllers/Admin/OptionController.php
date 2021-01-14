@@ -88,9 +88,9 @@ class OptionController extends Controller
             $option->phone = $request->phone;
             $option->email = $request->email;
             $option->save();
-            return redirect()->route('options.edit' , 1)->with('done', 'Edited Successfully...');
+            return redirect()->route('options.edit' , 1)->with('done', 'تم التعديل بنجاح...');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'ERROR TRY AGAIN!!');
+            return redirect()->back()->with('error', 'خطأ يرجي المحاولة في وقت لاحق !!');
         }
 
     }

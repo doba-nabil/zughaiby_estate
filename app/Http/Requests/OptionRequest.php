@@ -29,8 +29,7 @@ class OptionRequest extends FormRequest
             'insta' => 'required|max:100|min:1',
             'phone' => 'required',
             'whats' => 'required',
-            'ios' => 'required',
-            'andriod' => 'required',
+            'email' => 'required',
         ];
     }
 }

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+body , .page-title-box h4,#sidebar-menu ul li a,.fc .fc-toolbar h2,.card-title{
+    font-family: 'Cairo', sans-serif;
+}
 .blah_create{
     display: none;
 }

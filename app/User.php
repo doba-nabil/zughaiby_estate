@@ -6,11 +6,19 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
-
+    use Notifiable , Sluggable;
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -53,6 +61,6 @@ class User extends Authenticatable
     }
     public function estates()
     {
-        return $this->hasMany('App\Models\Address');
+        return $this->hasMany('App\Models\Estate');
     }
 }

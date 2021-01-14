@@ -80,8 +80,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="paid">ما تم دفعة ( في الشهر )</label>
-                                    <input type="number" name="paid" class="form-control" id="paid" value="{{ old('paid') }}" placeholder="ما تم دفعة ( في الشهر )" required>
+                                    <label for="paid">ما يتم دفعة ( في الشهر - اختياري )</label>
+                                    <input type="number" name="paid" class="form-control" id="paid" value="{{ old('paid') }}" placeholder="ما تم دفعة ( في الشهر )">
                                     @error('paid')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -89,8 +89,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="unpaid">ما لم يتم دفعة ( في الشهر )</label>
-                                    <input type="number" name="unpaid" class="form-control" id="unpaid" value="{{ old('unpaid') }}" placeholder="ما لم يتم دفعة ( في الشهر )" required>
+                                    <label for="unpaid">ما لم يتم دفعة ( في الشهر - اختياري )</label>
+                                    <input type="number" name="unpaid" class="form-control" id="unpaid" value="{{ old('unpaid') }}" placeholder="ما لم يتم دفعة ( في الشهر )">
                                     @error('unpaid')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -98,8 +98,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="imports">الواردات ( في الشهر )</label>
-                                    <input type="number" name="imports" class="form-control" id="imports" value="{{ old('imports') }}" placeholder="الواردات ( في الشهر )" required>
+                                    <label for="imports">الواردات ( في الشهر - اختياري )</label>
+                                    <input type="number" name="imports" class="form-control" id="imports" value="{{ old('imports') }}" placeholder="الواردات ( في الشهر )">
                                     @error('imports')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -107,8 +107,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exports">الصادرات ( في الشهر )</label>
-                                    <input type="number" name="exports" class="form-control" id="exports" value="{{ old('exports') }}" placeholder="الصادرات ( في الشهر )" required>
+                                    <label for="exports">الصادرات ( في الشهر - اختياري )</label>
+                                    <input type="number" name="exports" class="form-control" id="exports" value="{{ old('exports') }}" placeholder="الصادرات ( في الشهر )">
                                     @error('exports')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror

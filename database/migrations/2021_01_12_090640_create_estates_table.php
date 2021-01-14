@@ -22,13 +22,13 @@ class CreateEstatesTable extends Migration
             $table->tinyInteger('empty_apartments_count');
             $table->tinyInteger('rented_apartments_count');
 
-            $table->integer('paid');  // monthly
-            $table->integer('unpaid');  // monthly
-            $table->integer('total_payments');  // monthly
+            $table->integer('paid')->nullable();  // monthly
+            $table->integer('unpaid')->nullable();  // monthly
+            $table->integer('total_payments')->nullable();  // monthly
 
-            $table->integer('exports');  // monthly
-            $table->integer('imports');   // monthly
-            $table->integer('gain_payments');   // monthly
+            $table->integer('exports')->nullable();  // monthly
+            $table->integer('imports')->nullable();   // monthly
+            $table->integer('gain_payments')->nullable();   // monthly
 
             $table->integer('slug');
 

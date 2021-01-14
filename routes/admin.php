@@ -36,7 +36,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     /*********** end cities route ***********/
     /***********  estates route ***********/
     Route::resource('estates', 'EstateController');
+    Route::get('calendar/{slug}', 'EstateController@calendar')->name('calendar');
+    Route::get('estate/log/{slug}', 'EstateController@log')->name('estate_log');
     Route::delete('delete_estates', 'EstateController@delete_estates')->name('delete_estates');
+    /*********** end estates route ***********/
+    /***********  estates route ***********/
+    Route::get('all_infos/{slug}', 'ReportController@indexo')->name('all_infos');
+    Route::get('info/log/{slug}', 'ReportController@log')->name('info_log');
+    Route::resource('infos', 'ReportController',['except' => ['index']]);
+    Route::delete('delete_infos', 'ReportController@delete_infos')->name('delete_infos');
     /*********** end estates route ***********/
     /***********  ad Banners route ***********/
     Route::resource('sliders', 'SliderController', ['except' => ['show']]);
@@ -62,7 +70,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     //*********** end send message route ***********/
 });
 /************* ajax select routes ******************/
-Route::get('/ajax-subcats', 'Admin\AdminController@getsubcategories');
+Route::get('/ajax-estates', 'Admin\AdminController@getestates');
 Route::post('read', 'Admin\AdminController@readNotification');
 
 

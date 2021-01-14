@@ -1,33 +1,17 @@
 /********** ajax select ***********/
 var base_url = $('#base_url').val();
-$('#category_id').on('change',function(e){
+$('#user_id').on('change',function(e){
     console.log(e);
-    var category_id = e.target.value;
-    $.get( base_url + '/ajax-subcats?category_id='+ category_id,function(data){
-        $('#subcategory_id').empty();
+    var user_id = e.target.value;
+    $.get( base_url + '/ajax-estates?user_id='+ user_id,function(data){
+        $('#estate_id').empty();
         /*$('#subcategory_id').append('<option value="">-- choose / اختر --</option>');*/
-        $.each(data,function(index, subcatObj){
-            $('#subcategory_id').append('<option value="'+subcatObj.id+'">'+ subcatObj.name_ar + '/'+ subcatObj.name_en +'</option>');
+        $.each(data,function(index, stateObj){
+            $('#estate_id').append('<option value="'+stateObj.id+'">'+ stateObj.name +'</option>');
         });
     });
 });
-$('#country_id').on('change',function(e){
-    console.log(e);
-    var country_id = e.target.value;
-    $.get( base_url + '/ajax-city?country_id='+ country_id,function(data){
-        $('#city_id').empty();
-        /*$('#city_id').append('<option value="">-- choose / اختر --</option>');*/
-        $.each(data,function(index, subcatObj){
-            $('#city_id').append('<option value="'+subcatObj.id+'">'+subcatObj.name_ar +'/'+ subcatObj.name_en+'</option>');
-        });
-    });
-});
-
 /******************************/
-$(document).ready(function() {
-    $('.alert-danger').fadeIn('fast').delay(1200).fadeOut('slow');
-    $('.alert-success').fadeIn('fast').delay(1200).fadeOut('slow');
-});
 $(document).ready(function() {
     var base_url = $('#base_url').val();
     $('.delete_event_image').click(function () {

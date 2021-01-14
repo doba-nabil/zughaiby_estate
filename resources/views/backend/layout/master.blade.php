@@ -43,5 +43,11 @@
     <!-- END layout-wrapper -->
 </div>
 @include('backend.layout.footer')
+<script>
+    $(document).ready(function() {
+        $('.alert-danger').fadeIn('fast').delay(1200).fadeOut('slow');
+        $('.alert-success').fadeIn('fast').delay(1200).fadeOut('slow');
+    });
+</script>
 </body>
 </html>

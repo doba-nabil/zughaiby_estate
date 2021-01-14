@@ -34,6 +34,8 @@
                                 <td>
                                     <a href="{{ route('users.edit' , $user->id) }}"
                                        class="mr-3 text-primary"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                    <a href="{{ route('users.show' , $user->slug) }}"
+                                       class="mr-3 text-info"><i class="mdi mdi-eye font-size-18"></i></a>
                                     @if($user->active == 1)
                                         <a href="{{ route('blocked_btn' , $user->id) }}" title="حظر"
                                             class="mr-3 text-warning"><i class="fas fa-ban font-size-18"></i></a>

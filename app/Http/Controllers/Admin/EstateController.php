@@ -37,7 +37,7 @@ class EstateController extends Controller
 
     public function store(EstateRequest $request)
     {
-        try {
+
             $estate = new Estate();
             $estate->name = $request->name;
             $estate->address = $request->address;
@@ -50,7 +50,7 @@ class EstateController extends Controller
             $estate->total_payments = $request->paid - $request->unpaid;
             $estate->exports = $request->exports;
             $estate->imports = $request->imports;
-            $estate->gain_payments = $request->exports - $request->imports;
+            $estate->gain_payments = $request->imports - $request->exports;
             $estate->user_id = $request->user_id;
             $estate->city_id = $request->city_id;
             if ($request->active) {
@@ -63,9 +63,7 @@ class EstateController extends Controller
                 $this->saveimage($request->image, 'pictures/estates', $estate->id , Estate::class, 'main');
             }
             return redirect()->route('estates.index')->with('done', 'تم الاضافة بنجاح ....');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'حدث خطأ !!');
-        }
+
     }
 
     public function show($slug)
@@ -77,12 +75,23 @@ class EstateController extends Controller
             return redirect()->back()->with('error', 'حدث خطأ !!');
         }
     }
+    public function calendar($slug)
+    {
+        $estate = Estate::where('slug',$slug)->first();
+        if (isset($estate)) {
+            return view('backend.estates.calendar', compact('estate'));
+        } else {
+            return redirect()->back()->with('error', 'حدث خطأ !!');
+        }
+    }
 
     public function edit($slug)
     {
         $estate = Estate::where('slug',$slug)->first();
         if (isset($estate)) {
-            return view('backend.estates.edit', compact('estate'));
+            $cities = City::all();
+            $users = User::orderBy('id','desc')->get();
+            return view('backend.estates.edit', compact('estate','cities','users'));
         } else {
             return redirect()->back()->with('error', 'حدث خطأ !!');
         }
@@ -103,7 +112,7 @@ class EstateController extends Controller
             $estate->total_payments = $request->paid - $request->unpaid;
             $estate->exports = $request->exports;
             $estate->imports = $request->imports;
-            $estate->gain_payments = $request->exports - $request->imports;
+            $estate->gain_payments = $request->imports - $request->exports;
             $estate->user_id = $request->user_id;
             $estate->city_id = $request->city_id;
             if ($request->active) {
@@ -151,6 +160,17 @@ class EstateController extends Controller
                     'error' => 'NO Record TO DELETE'
                 ]);
             }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'حدث خطأ !!');
+        }
+    }
+
+    public function log($slug)
+    {
+        try{
+            $estate = Estate::where('slug' , $slug)->first();
+            $audits = $estate->audits;
+            return view('backend.estates.log', compact('audits' , 'estate'));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'حدث خطأ !!');
         }

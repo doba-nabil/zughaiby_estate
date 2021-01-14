@@ -82,8 +82,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="paid">ما تم دفعة ( في الشهر )</label>
-                                    <input type="number" name="floors_count" class="form-control" id="paid" value="{{ $estate->paid }}" placeholder="ما تم دفعة ( في الشهر )" required>
+                                    <label for="paid">ما تم دفعة ( في الشهر - اختياري )</label>
+                                    <input type="number" name="paid" class="form-control" id="paid" value="{{ $estate->paid }}" placeholder="ما تم دفعة ( في الشهر )" required>
                                     @error('paid')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -91,8 +91,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="unpaid">ما لم يتم دفعة ( في الشهر )</label>
-                                    <input type="number" name="apartments_count" class="form-control" id="unpaid" value="{{ $estate->unpaid }}" placeholder="ما لم يتم دفعة ( في الشهر )" required>
+                                    <label for="unpaid">ما لم يتم دفعة ( في الشهر - اختياري )</label>
+                                    <input type="number" name="unpaid" class="form-control" id="unpaid" value="{{ $estate->unpaid }}" placeholder="ما لم يتم دفعة ( في الشهر )" required>
                                     @error('unpaid')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -100,7 +100,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="imports">الواردات ( في الشهر )</label>
+                                    <label for="imports">الواردات ( في الشهر - اختياري )</label>
                                     <input type="number" name="imports" class="form-control" id="imports" value="{{ $estate->imports }}" placeholder="الواردات ( في الشهر )" required>
                                     @error('imports')
                                     <span class="text-danger">{{ $message }}</span>
@@ -109,7 +109,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exports">الصادرات ( في الشهر )</label>
+                                    <label for="exports">الصادرات ( في الشهر - اختياري )</label>
                                     <input type="number" name="exports" class="form-control" id="exports" value="{{ $estate->exports }}" placeholder="الصادرات ( في الشهر )" required>
                                     @error('exports')
                                     <span class="text-danger">{{ $message }}</span>
@@ -154,7 +154,7 @@
                             <div class="col-md-12">
                                 <label for="image">صورة البناية</label>
                                 <div class="custom-file">
-                                    <input type="file" name="image" class="custom-file-input" id="customFile" onchange="readURL(this);" required>
+                                    <input type="file" name="image" class="custom-file-input" id="customFile" onchange="readURL(this);">
                                     <label class="custom-file-label" for="customFile">الصورة</label>
                                     @error('image')
                                     <span class="text-danger">{{ $message }}</span>
